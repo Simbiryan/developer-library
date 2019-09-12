@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Добро пожаловать в #[em Библиотеку программиста!]
+
+  h1 Dynamic content
+
+  if error
+    p Ошибка получения динамического контента.
+  else
+    p Библиотека имеет следующие записи:
+
+    ul
+      li #[strong Книг:] !{data.book_count}
+      li #[strong Копий:] !{data.book_instance_count}
+      li #[strong Копий доступно:] !{data.book_instance_available_count} 
+      li #[strong Авторов:] !{data.author_count}
+      li #[strong Жанров:] !{data.genre_count}
