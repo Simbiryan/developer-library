@@ -1,20 +1,20 @@
 extends layout
 
 block content
-  h1 Title: #{book.title}
+  h1 Название: #{book.title}
   
-  p #[strong Author:] 
+  p #[strong Автор:] 
     a(href=book.author.url) #{book.author.name}
-  p #[strong Summary:] #{book.summary}
+  p #[strong Аннотация:] #{book.summary}
   p #[strong ISBN:] #{book.isbn}
-  p #[strong Genre:]&nbsp;
+  p #[strong Жанр:]&nbsp;
     each val, index in book.genre
       a(href=val.url) #{val.name}
       if index < book.genre.length - 1
         |, 
   
   div(style='margin-left:20px;margin-top:20px')
-    h4 Copies
+    h4 Копии
     
     each val in book_instances
       hr
@@ -24,17 +24,17 @@ block content
         p.text-danger #{val.status}
       else
         p.text-warning #{val.status} 
-      p #[strong Imprint:] #{val.imprint}
+      p #[strong Отпечатано:] #{val.imprint}
       if val.status!='Available'
-        p #[strong Due back:] #{val.due_back_formatted}
+        p #[strong Будет доступна:] #{val.due_back_formatted}
       p #[strong Id:]&nbsp;
         a(href=val.url) #{val._id}
  
     else
-      p There are no copies of this book in the library.
+      p В библиотеке нет копий данной книги.
 
        hr
       p
-        a(href=book.url+'/delete') Delete Book
+        a(href=book.url+'/delete') Удалить книгу
       p
-        a(href=book.url+'/update') Update Book
+        a(href=book.url+'/update') Обновить книгу
