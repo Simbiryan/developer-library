@@ -19,7 +19,7 @@ AuthorSchema
   return this.family_name + ', ' + this.first_name;
 });
 
-// Виртуальное свойство - URL автора
+// AuthorSchema - URL автора
 AuthorSchema
 .virtual('url')
 .get(function () {

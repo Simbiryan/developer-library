@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var compression = require('compression');
 var helmet = require('helmet');
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,9 +13,9 @@ var catalogRouter = require('./routes/catalog');
 
 var app = express();
 
-// Connect to mongoose
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://simbiryan:UL2004sas@cluster0-u7kei.mongodb.net/test?retryWrites=true&w=majority';//замените url!!!
+// Set up mongoose connection
+var dev_db_url = 'mongodb+srv://simbiryan:UL2004sas@cluster0-u7kei.mongodb.net/test?retryWrites=true&w=majority'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
