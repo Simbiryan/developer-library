@@ -12,7 +12,7 @@ var catalogRouter = require('./routes/catalog');
 
 var app = express();
 
-// Устанавливаем соединение с mongoose
+// Connect to mongoose
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://simbiryan:UL2004sas@cluster0-u7kei.mongodb.net/test?retryWrites=true&w=majority';//замените url!!!
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
