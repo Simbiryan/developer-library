@@ -4,12 +4,10 @@ block content
   h1= title
   p Добро пожаловать в #[em Библиотеку программиста!]
 
-  h1 Dynamic content
-
   if error
     p Ошибка получения данных.
   else
-    p Библиотека содержит:
+    p На настоящий момент библиотека содержит:
 
     ul
       li #[strong Книг:] !{data.book_count}
